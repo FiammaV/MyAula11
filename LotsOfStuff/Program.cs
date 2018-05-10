@@ -18,6 +18,9 @@ namespace Aula11 {
         private void TestProject() {
             // Instanciar um jogador com 70 quilos
             Player p = new Player(70.0f);
+
+            Console.WriteLine("Antes" + " " + p.ToString());
+
             Bag otherBag = new Bag(5);
 
             otherBag.Add(new Food(FoodType.Meat, 1, 1.0f));
@@ -56,6 +59,8 @@ namespace Aula11 {
             // Mostrar de novo informação sobre a mochila
             Console.WriteLine(p.BagOfStuff);
             Console.WriteLine(otherBag);
+
+            Console.WriteLine("Depois" + " " + p.ToString());
         }
     }
 }

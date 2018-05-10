@@ -24,8 +24,8 @@
         /// </summary>
         public float Weight {
             get {
-                // Seria porreiro adicionar o peso de todas as coisas no saco
-                return baseWeight;
+                // peso base + peso do saco
+                return baseWeight + BagOfStuff.Weight;
             }
         }
 
@@ -34,6 +34,10 @@
         public Player(float baseWeight) {
             this.baseWeight = baseWeight;
             BagOfStuff = new Bag(maxBagItems);
+        }
+        public override string ToString() {
+            return $"O peso total é {BagOfStuff.Weight}, tem {BagOfStuff.Count} itens" + " " +
+                $"e a percentagem do peso total é {BagOfStuff.Weight / Weight}";
         }
     }
 }
