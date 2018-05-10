@@ -1,8 +1,6 @@
-﻿namespace Aula11
-{
+﻿namespace Aula11 {
     /// <summary>Enumeração que representa um tipo de comida</summary>
-    public enum FoodType
-    {
+    public enum FoodType {
         Bread = 2,
         Eggs = 5,
         Vegetables = 8,

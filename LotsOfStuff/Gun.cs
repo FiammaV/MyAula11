@@ -1,8 +1,6 @@
-﻿namespace Aula11
-{
+﻿namespace Aula11 {
     /// <summary>Classe que define uma pistola</summary>
-    public class Gun : IStuff
-    {
+    public class Gun : IStuff {
         /// <summary>Peso base (variável de instância read-only)</summary>
         private readonly float baseWeight;
 
@@ -29,8 +27,7 @@
         /// <param name="bulletWeight">Peso de cada bala</param>
         /// <param name="numberOfBullets">Número inicial de balas</param>
         /// <param name="cost">Custo da arma</param>
-        public Gun(float baseWeight, float bulletWeight, int numberOfBullets, float value)
-        {
+        public Gun(float baseWeight, float bulletWeight, int numberOfBullets, float value) {
             this.baseWeight = baseWeight;
             this.bulletWeight = bulletWeight;
             NumberOfBullets = numberOfBullets;
@@ -38,10 +35,8 @@
         }
 
         /// <summary> Dispara a arma </summary>
-        public void Shoot()
-        {
-            if (NumberOfBullets > 0)
-            {
+        public void Shoot() {
+            if (NumberOfBullets > 0) {
                 NumberOfBullets--;
             }
         }
@@ -52,8 +47,7 @@
         /// <returns>
         /// Uma string contendo informação acerca da arma.
         /// </returns>
-        public override string ToString()
-        {
+        public override string ToString() {
             return $"Arma pesa {Weight} Kg (inclui {NumberOfBullets} " +
                 $"balas) e custa {Value} EUR";
         }

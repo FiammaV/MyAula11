@@ -1,10 +1,9 @@
-﻿namespace Aula11
-{
+﻿namespace Aula11 {
     /// <summary>Esta classe representa um jogador num jogo</summary>
-    public class Player : IHasWeight
-    {
+    public class Player : IHasWeight {
 
         /// <summary>
+        /// Máximo de items na mochila (variável de classe, constante,
         /// Máximo de items na mochila (variável de classe, constante,
         /// implicitamente static)
         /// </summary>
@@ -24,8 +23,7 @@
         /// Propriedade Weight respeita o contrato com IHasWeight
         /// </summary>
         public float Weight {
-            get
-            {
+            get {
                 // Seria porreiro adicionar o peso de todas as coisas no saco
                 return baseWeight;
             }
@@ -33,8 +31,7 @@
 
         /// <summary>Construtor, cria nova instância de jogador</summary>
         /// <param name="baseWeight">Peso base do jogador</param>
-        public Player(float baseWeight)
-        {
+        public Player(float baseWeight) {
             this.baseWeight = baseWeight;
             BagOfStuff = new Bag(maxBagItems);
         }

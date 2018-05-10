@@ -1,16 +1,13 @@
 ﻿using System;
 
-namespace Aula11
-{
+namespace Aula11 {
     /// <summary>Programa para testar o projeto</summary>
-    public class Program
-    {
+    public class Program {
         /// <summary>O programa começa aqui no Main</summary>
         /// <param name="args">
         /// Argumentos de linha de comandos (são ignorados neste programa)
         /// </param>
-        public static void Main(string[] args)
-        {
+        public static void Main(string[] args) {
             // Criar uma nova instância de Program e
             // invocar o método TestProjet na instância criada
             Program prog = new Program();
@@ -18,10 +15,14 @@ namespace Aula11
         }
 
         /// <summary>Método que testa este projeto</summary>
-        private void TestProject()
-        {
+        private void TestProject() {
             // Instanciar um jogador com 70 quilos
             Player p = new Player(70.0f);
+            Bag otherBag = new Bag(5);
+
+            otherBag.AddThing(new Food(FoodType.Meat, 1, 1.0f));
+            otherBag.AddThing(new Food(FoodType.Vegetables, 2, 1.5f));
+            p.BagOfStuff.AddThing(otherBag);
 
             //
             // Adicionar vários itens à mochila do jogador:
@@ -43,20 +44,19 @@ namespace Aula11
             Console.WriteLine(p.BagOfStuff);
 
             // Percorrer itens na mochila e tentar "imprimir" cada um
-            for (int i = 0; i < p.BagOfStuff.StuffCount; i++)
-            {
+            for (int i = 0; i < p.BagOfStuff.StuffCount; i++) {
                 IStuff aThing = p.BagOfStuff.GetThing(i);
                 Console.WriteLine($"\t=> {aThing}");
 
                 // Se item atual for uma arma, disparar a mesma
-                if (aThing is Gun)
-                {
+                if (aThing is Gun) {
                     (aThing as Gun).Shoot();
                 }
             }
 
             // Mostrar de novo informação sobre a mochila
             Console.WriteLine(p.BagOfStuff);
+            Console.WriteLine(otherBag);
         }
     }
 }
