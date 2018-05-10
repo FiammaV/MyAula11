@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Aula11 {
     /// <summary>
@@ -6,10 +7,10 @@ namespace Aula11 {
     /// </summary>
     public class Bag : IStuff {
         /// <summary>Array que contém os itens da mochila</summary>
-        private IStuff[] stuff;
+        private ArrayList stuff;
 
         /// <summary>Número de itens na mochila</summary>
-        public int StuffCount { get; private set; }
+        public int StuffCount { get { return stuff.Count; } }
 
         /// <summary> 
         /// Propriedade Weight respeita o contrato com IHasWeight. No caso do
@@ -50,34 +51,27 @@ namespace Aula11 {
         /// Número máximo de itens que é possível colocar na mochila
         /// </param>
         public Bag(int bagSize) {
-            stuff = new IStuff[bagSize];
-            StuffCount = 0;
+            stuff = new ArrayList(bagSize);
         }
 
         /// <summary>Colocar um item na mochila</summary>
         /// <param name="aThing">Item a colocar na mochila</param>
         public void AddThing(IStuff aThing) {
-            // Será que temos espaço na mochila?
-            if (StuffCount >= stuff.Length) {
-                // Senão tivermos podemos "lançar" uma exceção
-                throw new InvalidOperationException("Bag is already full!");
-            }
-
             // Adicionar o item à mochila e depois incrementar o
             // número de coisas na mochila
-            stuff[StuffCount++] = aThing;
+            stuff.Add(aThing);
         }
 
         /// <summary>Observar um item da mochila sem o remover da mesma</summary>
         /// <param name="index">Local onde está o item a observar</param>
         /// <returns>Item a ser observado</returns>
         public IStuff GetThing(int index) {
-            if (index >= StuffCount) {
+            if (index >= stuff.Count) {
                 // Senão existir um item no local indicado, "lançar" uma exceção
                 throw new InvalidOperationException(
                     "Bag doesn't have that much stuff!");
             }
-            return stuff[index];
+            return stuff[index] as IStuff;
         }
 
         /// <summary>
