@@ -58,6 +58,17 @@ namespace Aula11 {
             return false;
         }
 
+        public IEnumerable<T> GetItemsOfType<T>() where T : class, IStuff {
+            List<T> lst = new List<T>();
+
+            foreach(IStuff cena in this) {
+                if(cena is T) {
+                    lst.Add(cena as T);
+                }
+            }
+            return lst;
+        }
+
         /// <summary>
         /// Construtor que cria uma nova instância de mochila
         /// </summary>

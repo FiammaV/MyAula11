@@ -73,12 +73,19 @@ namespace Aula11 {
             Console.WriteLine("Mochila player contem bags?" + " "
                 + p.BagOfStuff.ContainsItemsOfType<Bag>());
 
+            Console.WriteLine();
+
             Console.WriteLine("Mochila extra contem guns?" + " "
                + otherBag.ContainsItemsOfType<Gun>());
             Console.WriteLine("Mochila extra contem food?" + " "
                 + otherBag.ContainsItemsOfType<Food>());
             Console.WriteLine("Mochila extra contem bags?" + " "
                 + otherBag.ContainsItemsOfType<Bag>());
+            Console.WriteLine();
+
+            foreach(Food f in p.BagOfStuff.GetItemsOfType<Food>()) { //IEnumerable<Food>
+                Console.WriteLine(f);
+            }
         }
     }
 }
