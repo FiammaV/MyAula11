@@ -1,6 +1,6 @@
 ﻿namespace Aula11 {
     /// <summary>Esta classe representa um jogador num jogo</summary>
-    public class Player : IHasWeight {
+    public class Player : IHasWeight, IHasKarma {
 
         /// <summary>
         /// Máximo de items na mochila (variável de classe, constante,
@@ -26,6 +26,12 @@
             get {
                 // peso base + peso do saco
                 return baseWeight + BagOfStuff.Weight;
+            }
+        }
+
+        public float Karma {
+            get {
+                return BagOfStuff.Karma;
             }
         }
 

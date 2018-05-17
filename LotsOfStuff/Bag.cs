@@ -5,7 +5,7 @@ namespace Aula11 {
     /// <summary>
     /// Classe que representa uma mochila ou saco que contem itens
     /// </summary>
-    public class Bag : List<IStuff>, IStuff {
+    public class Bag : List<IStuff>, IStuff, IHasKarma {
 
         /// <summary> 
         /// Propriedade Weight respeita o contrato com IHasWeight. No caso do
@@ -32,6 +32,20 @@ namespace Aula11 {
                         totalValue += aThing.Value;
                 }
                 return totalValue;
+            }
+        }
+
+        public float Karma {
+            get {
+                int numeroCenasComKarma = 0;
+                float total = 0;
+                foreach(IStuff cena in this) {
+                    if (cena is IHasKarma) {
+                        total += (cena as IHasKarma).Karma;
+                        numeroCenasComKarma++;
+                    }
+                }
+                return total / numeroCenasComKarma;
             }
         }
 
