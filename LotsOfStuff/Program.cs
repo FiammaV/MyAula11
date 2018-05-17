@@ -12,6 +12,8 @@ namespace Aula11 {
             // invocar o método TestProjet na instância criada
             Program prog = new Program();
             prog.TestProject();
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
         }
 
         /// <summary>Método que testa este projeto</summary>

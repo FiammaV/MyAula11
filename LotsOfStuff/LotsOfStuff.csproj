@@ -48,6 +48,7 @@
     <Compile Include="Gun.cs" />
     <Compile Include="IHasWeight.cs" />
     <Compile Include="IStuff.cs" />
+    <Compile Include="ItemWithKarma.cs" />
     <Compile Include="IValuable.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

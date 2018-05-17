@@ -1,6 +1,6 @@
 ﻿namespace Aula11 {
     /// <summary>Classe que define um pedaço de comida</summary>
-    public class Food : IStuff {
+    public class Food : ItemWithKarma, IStuff {
         /// <summary>Dias que a comida tem (variável de instância)</summary>
         private float days;
 
@@ -28,7 +28,7 @@
         /// <param name="type">Tipo de comida (definido na enum. FoodType)</param>
         /// <param name="days">Número de dias que a comida tem</param>
         /// <param name="weight">Peso da comida</param>
-        public Food(FoodType type, float days, float weight) {
+        public Food(FoodType type, float days, float weight) : base() {
             this.days = days;
             Type = type;
             Weight = weight;
@@ -41,8 +41,8 @@
         /// Uma string contendo informação acerca da comida.
         /// </returns>
         public override string ToString() {
-            return $"{Type} tem {days} dias, pesa {Weight} Kg e " +
-                $"custa {Value} EUR";
+            return $"{Type} tem {days:f2} dias, pesa {Weight:f2} Kg, e " +
+                $"custa {Value:c} (karma = {Karma:f2})";
         }
     }
 }

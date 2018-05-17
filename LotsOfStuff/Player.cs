@@ -36,8 +36,8 @@
             BagOfStuff = new Bag(maxBagItems);
         }
         public override string ToString() {
-            return $"O peso total é {BagOfStuff.Weight}, tem {BagOfStuff.Count} itens" + " " +
-                $"e a percentagem do peso total é {BagOfStuff.Weight / Weight}";
+            return $"O peso total é {BagOfStuff.Weight:f2}, tem {BagOfStuff.Count:f2} itens" + " " +
+                $"e a percentagem do peso total é {BagOfStuff.Weight / Weight:p}";
         }
     }
 }
