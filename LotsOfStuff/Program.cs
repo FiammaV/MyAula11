@@ -86,6 +86,10 @@ namespace Aula11 {
             foreach(Food f in p.BagOfStuff.GetItemsOfType<Food>()) { //IEnumerable<Food>
                 Console.WriteLine(f);
             }
+
+            foreach(Gun f in p.BagOfStuff.BetterGetItemsOfType<Gun>()) { //IEnumerable<Gun>
+                Console.WriteLine(f);
+            }
         }
     }
 }

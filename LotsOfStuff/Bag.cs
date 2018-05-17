@@ -69,6 +69,14 @@ namespace Aula11 {
             return lst;
         }
 
+        public IEnumerable<T> BetterGetItemsOfType<T>() where T : IStuff {
+            foreach(IStuff cena in this) {
+                if(cena is T) {
+                    yield return (T)cena;
+                }
+            }
+        }
+
         /// <summary>
         /// Construtor que cria uma nova instância de mochila
         /// </summary>
