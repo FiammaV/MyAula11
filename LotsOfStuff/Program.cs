@@ -59,10 +59,26 @@ namespace Aula11 {
             }
 
             // Mostrar de novo informação sobre a mochila
+            Console.WriteLine();
             Console.WriteLine(p.BagOfStuff);
             Console.WriteLine(otherBag);
 
             Console.WriteLine("Depois" + " " + p.ToString());
+
+            Console.WriteLine();
+            Console.WriteLine("Mochila player contem guns?" + " "
+                + p.BagOfStuff.ContainsItemsOfType<Gun>());
+            Console.WriteLine("Mochila player contem food?" + " "
+                + p.BagOfStuff.ContainsItemsOfType<Food>());
+            Console.WriteLine("Mochila player contem bags?" + " "
+                + p.BagOfStuff.ContainsItemsOfType<Bag>());
+
+            Console.WriteLine("Mochila extra contem guns?" + " "
+               + otherBag.ContainsItemsOfType<Gun>());
+            Console.WriteLine("Mochila extra contem food?" + " "
+                + otherBag.ContainsItemsOfType<Food>());
+            Console.WriteLine("Mochila extra contem bags?" + " "
+                + otherBag.ContainsItemsOfType<Bag>());
         }
     }
 }

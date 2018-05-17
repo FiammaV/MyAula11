@@ -49,6 +49,15 @@ namespace Aula11 {
             }
         }
 
+        public bool ContainsItemsOfType<T>() where T : IStuff {
+            foreach(IStuff cena in this) {
+                if (cena is T) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// Construtor que cria uma nova instância de mochila
         /// </summary>
