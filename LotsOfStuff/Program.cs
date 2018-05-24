@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Aula11 {
     /// <summary>Programa para testar o projeto</summary>
@@ -90,6 +91,8 @@ namespace Aula11 {
             foreach(Gun f in p.BagOfStuff.BetterGetItemsOfType<Gun>()) { //IEnumerable<Gun>
                 Console.WriteLine(f);
             }
+
+            File.WriteAllLines("mochila.txt", p.BagOfStuff.GetStrings());
         }
     }
 }

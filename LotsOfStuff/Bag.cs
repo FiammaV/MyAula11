@@ -113,6 +113,12 @@ namespace Aula11 {
             return new Tuple<Food, Gun>(food, gun);
         }
 
+        public IEnumerable<string> GetStrings() {
+            foreach (IStuff s in this) {
+                yield return s.ToString();
+            }
+        }
+
         /// <summary>
         /// Construtor que cria uma nova instância de mochila
         /// </summary>
