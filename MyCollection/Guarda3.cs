@@ -14,13 +14,13 @@ public class Guarda3<T> : IEnumerable<T> {
     }
 
     public void Add(T item) {
-        if (v1.Equals(default(T))) {
+        if (object.Equals(v1, default(T))) {
             v1 = item;
         }
-        else if (v2.Equals(default(T))) {
+        else if (object.Equals(v2, default(T))) {
             v2 = item;
         }
-        else if (v3.Equals(default(T))) {
+        else if (object.Equals(v3, default(T))) {
             v3 = item;
         }
     }
