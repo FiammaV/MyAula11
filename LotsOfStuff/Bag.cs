@@ -15,7 +15,7 @@ namespace Aula11 {
             get {
                 float totalWeight = 0;
                 foreach (IStuff aThing in this) {
-                        totalWeight += aThing.Weight;
+                    totalWeight += aThing.Weight;
                 }
                 return totalWeight;
             }
@@ -29,7 +29,7 @@ namespace Aula11 {
             get {
                 float totalValue = 0;
                 foreach (IStuff aThing in this) {
-                        totalValue += aThing.Value;
+                    totalValue += aThing.Value;
                 }
                 return totalValue;
             }
@@ -39,7 +39,7 @@ namespace Aula11 {
             get {
                 int numeroCenasComKarma = 0;
                 float total = 0;
-                foreach(IStuff cena in this) {
+                foreach (IStuff cena in this) {
                     if (cena is IHasKarma) {
                         total += (cena as IHasKarma).Karma;
                         numeroCenasComKarma++;
@@ -50,7 +50,7 @@ namespace Aula11 {
         }
 
         public bool ContainsItemsOfType<T>() where T : IStuff {
-            foreach(IStuff cena in this) {
+            foreach (IStuff cena in this) {
                 if (cena is T) {
                     return true;
                 }
@@ -61,8 +61,8 @@ namespace Aula11 {
         public IEnumerable<T> GetItemsOfType<T>() where T : class, IStuff {
             List<T> lst = new List<T>();
 
-            foreach(IStuff cena in this) {
-                if(cena is T) {
+            foreach (IStuff cena in this) {
+                if (cena is T) {
                     lst.Add(cena as T);
                 }
             }
@@ -70,11 +70,47 @@ namespace Aula11 {
         }
 
         public IEnumerable<T> BetterGetItemsOfType<T>() where T : IStuff {
-            foreach(IStuff cena in this) {
-                if(cena is T) {
+            foreach (IStuff cena in this) {
+                if (cena is T) {
                     yield return (T)cena;
                 }
             }
+        }
+
+        public void GetHeavier1(out Food food, out Gun gun) {
+            food = null;
+            gun = null;
+
+            foreach (IStuff s in this) {
+                if (s is Food) {
+                    if ((food == null) || (s.Weight > food.Weight)) {
+                        food = s as Food;
+                    }
+                } else if(s is Gun) {
+                    if ((gun == null) || (s.Weight > gun.Weight)) {
+                        gun = s as Gun;
+                    }
+                }
+            }
+        }
+
+        public Tuple<Food, Gun> GetHeavier2() {
+            Food food = null;
+            Gun gun = null;
+
+            foreach (IStuff s in this) {
+                if (s is Food) {
+                    if ((food == null) || (s.Weight > food.Weight)) {
+                        food = s as Food;
+                    }
+                }
+                else if (s is Gun) {
+                    if ((gun == null) || (s.Weight > gun.Weight)) {
+                        gun = s as Gun;
+                    }
+                }
+            }
+            return new Tuple<Food, Gun>(food, gun);
         }
 
         /// <summary>
