@@ -19,6 +19,14 @@ namespace Aula11 {
             g3f.SetItem(2, 5.7f);
             g3f.SetItem(3, -4);
 
+            foreach (string s in g3s) {
+                Console.WriteLine(s);
+            }
+
+            foreach (float f in g3f) {
+                Console.WriteLine(f);
+            }
+
             Console.WriteLine(g3s.GetItem(1));
         }
     }
